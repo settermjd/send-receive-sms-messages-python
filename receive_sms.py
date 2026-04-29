@@ -52,7 +52,7 @@ def with_response():
     default_option = '''I just wanna tell you how I'm feeling - Gotta make you understand'''
 
     body = request.form['Body']
-    if body.ascii_lowercase() == "never gonna":
+    if body.lower() == "never gonna":
         options = (
             'give you up',
             'let you down',
