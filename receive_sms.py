@@ -30,7 +30,8 @@ def no_response():
     "application/xml; charset=utf-8".
     """
     response = MessagingResponse()
-    return response
+
+    return str(response)
 
 @app.post('/receive/with-response')
 def with_response():
@@ -66,4 +67,5 @@ def with_response():
         message.body(default_option)
 
     response.append(message)
-    return response
+
+    return str(response)
