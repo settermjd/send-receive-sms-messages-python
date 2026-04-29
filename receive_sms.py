@@ -69,3 +69,6 @@ def with_response():
     response.append(message)
 
     return str(response)
+
+if __name__ == "__main__":
+    app.run(debug=True)
