@@ -14,7 +14,7 @@ To run the app locally, you need the following:
 - A [Twilio account][twilio_signup] with an active phone number that can send SMS
 - Some command-line/terminal experience would be helpful, but it's not necessary
 
-## Quickstart
+## Quick Start
 
 First things first, clone or download this repository.
 In the repository, you'll see two files: _send_sms.py_ and _receive_sms.py_.
@@ -36,7 +36,7 @@ Before you can send an SMS, you need to complete the following
 
 1. Rename the `.env.example` file to `.env`
 1. Go to the [Twilio Console][twilio_console] and find your **Account SID**, **Auth Token**, and Twilio phone number.
-1. Copy and paste those values into the placeholders in the `.env` file `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`, and `SENDER`, respectively.
+1. Copy and paste those values into the placeholders in the `.env` file `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`, and `TWILIO_PHONE_NUMBER`, respectively.
 1. Set your phone number, in [E.164 format][e164_format] as the value of `RECIPIENT` in _.env_
    Save the file.
 
@@ -74,10 +74,40 @@ Before you can receive an SMS, you need to complete a few further steps.
 1. With both the Flask app and ngrok running, send an SMS to your Twilio phone number, containing whatever message you like.
    If you want a response, try sending "never gonna" as the message.
 
+## Testing
+
+While the code does not have any tests, yet, you can use the [Pylint][pylint] to perform static analysis on the code base.
+Then, from the project's top-level directory, install Pylint with the following command:
+
+```bash
+python -m pip install pylint
+```
+
+Then, run Pylint on the Python source files with the following command:
+
+```bash
+pylint *.py
+```
+
+Additionally, if you want to validate the documentation (_README.md_) use [MarkdownLint][markdownlint].
+To do that, first install it by running the following command:
+
+```bash
+npm install markdownlint --save-dev
+```
+
+Then, run the following command to validate the documentation with MarkdownLint:
+
+```bash
+markdownlint-cli2 README.md
+```
+
 [active_numbers]: https://console.twilio.com/us1/develop/phone-numbers/manage/incoming
 [e164_format]: https://www.twilio.com/docs/glossary/what-e164
 [flask]: https://flask.palletsprojects.com/en/stable/quickstart/
+[markdownlint]: https://github.com/davidanson/markdownlint
 [ngrok]: https://ngrok.com/
+[pylint]: https://pypi.org/project/pylint/
 [python]: https://www.python.org/downloads/
 [python_dotenv_package]: https://saurabh-kumar.com/python-dotenv/
 [twilio_console]: https://console.twilio.com
